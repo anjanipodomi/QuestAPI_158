@@ -4,10 +4,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.example.mydatasisw.modeldata.DetailSiswa
-import com.example.mydatasisw.modeldata.UIStateSiswa
-import com.example.mydatasisw.modeldata.toDataSiswa
-import com.example.mydatasisw.repositori.RepositoryDataSiswa
+import com.example.localrestapi.modeldata.DetailSiswa
+import com.example.localrestapi.modeldata.UIStateSiswa
+import com.example.localrestapi.modeldata.toDataSiswa
+import com.example.localrestapi.repositori.RepositoryDataSiswa
 import retrofit2.Response
 
 class EntryViewModel(private val repositoryDataSiswa: RepositoryDataSiswa):
@@ -15,7 +15,7 @@ class EntryViewModel(private val repositoryDataSiswa: RepositoryDataSiswa):
     var uiStateSiswa by mutableStateOf(UIStateSiswa())
         private set
 
-    private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.detailSiswa ):
+    private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.DetailSiswa ):
             Boolean {
         return with(uiState) {
             nama.isNotBlank() && alamat.isNotBlank() && telpon.isNotBlank()
@@ -24,14 +24,14 @@ class EntryViewModel(private val repositoryDataSiswa: RepositoryDataSiswa):
 
     fun updateUiState(detailSiswa: DetailSiswa) {
         uiStateSiswa =
-            UIStateSiswa(detailSiswa = detailSiswa, isEntryValid = validasiInput
+            UIStateSiswa(DetailSiswa = detailSiswa, isEntryValid = validasiInput
                 (detailSiswa))
     }
 
     suspend fun addSiswa() {
         if (validasiInput()) {
             val sip:Response<Void> =repositoryDataSiswa.postDataSiswa(uiStateSiswa
-                .detailSiswa.toDataSiswa())
+                .DetailSiswa.toDataSiswa())
             if (sip.isSuccessful){
                 println("Sukses Tambah Data : ${sip.message()}")
             }else{

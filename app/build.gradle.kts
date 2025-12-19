@@ -38,6 +38,11 @@ android {
     buildFeatures {
         compose = true
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.14"
+    }
+
 }
 
 dependencies {
@@ -65,4 +70,5 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
+    implementation(libs.androidx.compose.foundation)
 }

@@ -1,5 +1,27 @@
 package com.example.localrestapi.view
 
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.coroutines.launch
+import com.example.localrestapi.viewmodel.EntryViewModel
+import com.example.localrestapi.viewmodel.provider.PenyediaViewModel
+import com.example.localrestapi.modeldata.UIStateSiswa
+import com.example.localrestapi.modeldata.DetailSiswa
+import com.example.localrestapi.uicontroller.route.DestinasiEntry
+import com.example.localrestapi.view.SiswaTopAppBar
+import com.example.localrestapi.R
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+
+
+
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EntrySiswaScreen(
@@ -51,7 +73,7 @@ fun EntrySiswaBody(
         modifier = modifier.padding(dimensionResource(id = R.dimen.padding_medium))
     ) {
         FormTambahSiswa(
-            detailSiswa = uiStateSiswa.detailSiswa,
+            detailSiswa = uiStateSiswa.DetailSiswa,
             onValueChange = onSiswaValueChange,
             modifier = Modifier.fillMaxWidth()
         )
@@ -98,19 +120,19 @@ fun FormTambahSiswa(
         OutlinedTextField(
             value = detailSiswa.telpon,
             onValueChange = { onValueChange(detailSiswa.copy(telpon = it)) },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             label = { Text(stringResource(R.string.telpon)) },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
             singleLine = true
         )
 
+
         if (enabled) {
             Text(
                 text = stringResource(R.string.required_field),
                 modifier = Modifier
                     .padding(start = dimensionResource(id = R.dimen.padding_medium))
-                    .padding(medium)
+                    .padding(dimensionResource(id = R.dimen.padding_medium))
             )
         }
 
@@ -118,7 +140,7 @@ fun FormTambahSiswa(
             thickness = dimensionResource(R.dimen.padding_small),
             modifier = Modifier
                 .padding(bottom = dimensionResource(R.dimen.padding_medium))
-                .padding(medium)
+                .padding(dimensionResource(id = R.dimen.padding_medium))
         )
     }
 }

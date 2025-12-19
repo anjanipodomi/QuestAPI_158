@@ -8,10 +8,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.mydatasisw.uicontroller.route.DestinasiEntry
-import com.example.mydatasisw.uicontroller.route.DestinasiHome
-import com.example.mydatasisw.view.EntrySiswaScreen
-import com.example.mydatasisw.view.HomeScreen
+import com.example.localrestapi.uicontroller.route.DestinasiEntry
+import com.example.localrestapi.uicontroller.route.DestinasiHome
+import com.example.localrestapi.view.EntrySiswaScreen
+import com.example.localrestapi.view.HomeScreen
+//import com.example.localrestapi.uicontroller.route.DestinasiDetail
 
 @Composable
 fun DataSiswaApp(navController: NavHostController = rememberNavController(),
@@ -24,18 +25,33 @@ fun HostNavigasi(
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
-    NavHost(navController = navController, startDestination = DestinasiHome.route,
-        modifier = Modifier ){
+    NavHost(
+        navController = navController,
+        startDestination = DestinasiHome.route,
+        modifier = Modifier
+    ) {
         composable(DestinasiHome.route) {
-            HomeScreen(navigateToItemEntry = { navController.navigate
-                (DestinasiEntry.route) },
-                navigateToItemUpdate = {
-                    navController.navigate("${DestinasiDetail.route}/${it}")
+            HomeScreen(
+                navigateToItemEntry = {
+                    navController.navigate(DestinasiEntry.route)
+                },
+                navigateToItemUpdate = { //id ->
+                    //navController.navigate("${DestinasiDetail.route}/$id")
+                }
+            )
+        }
+        composable(DestinasiEntry.route) {
+            EntrySiswaScreen(
+                navigateBack = {
+                    navController.navigate(DestinasiHome.route)
                 })
         }
-        composable(DestinasiEntry.route){
-            EntrySiswaScreen(navigateBack = { navController.navigate(DestinasiHome
-                .route) })
-        }
     }
+}
+
+@Composable
+fun DataSiswaApp(
+    modifier: Modifier = Modifier
+) {
+    HostNavigasi(modifier = modifier)
 }
