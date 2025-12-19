@@ -1,5 +1,18 @@
 package com.example.localrestapi.uicontroller
 
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.example.mydatasisw.uicontroller.route.DestinasiEntry
+import com.example.mydatasisw.uicontroller.route.DestinasiHome
+import com.example.mydatasisw.view.EntrySiswaScreen
+import com.example.mydatasisw.view.HomeScreen
+
 @Composable
 fun DataSiswaApp(navController: NavHostController = rememberNavController(),
                  modifier: Modifier){
