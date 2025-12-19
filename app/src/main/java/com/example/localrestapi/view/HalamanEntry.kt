@@ -65,3 +65,11 @@ fun EntrySiswaBody(
         }
     }
 }
+
+@Composable
+fun FormTambahSiswa(
+    detailSiswa: DetailSiswa,
+    modifier: Modifier = Modifier,
+    onValueChange: (DetailSiswa) -> Unit = {},
+    enabled: Boolean = true
+)
