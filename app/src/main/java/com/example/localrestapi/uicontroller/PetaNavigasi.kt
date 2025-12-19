@@ -13,6 +13,9 @@ import com.example.localrestapi.uicontroller.route.DestinasiHome
 import com.example.localrestapi.view.EntrySiswaScreen
 import com.example.localrestapi.view.HomeScreen
 //import com.example.localrestapi.uicontroller.route.DestinasiDetail
+import androidx.navigation.compose.rememberNavController
+
+
 
 @Composable
 fun DataSiswaApp(navController: NavHostController = rememberNavController(),
@@ -53,5 +56,9 @@ fun HostNavigasi(
 fun DataSiswaApp(
     modifier: Modifier = Modifier
 ) {
-    HostNavigasi(modifier = modifier)
+    val navController = rememberNavController()
+    HostNavigasi(
+        navController = navController,
+        modifier = modifier
+    )
 }
