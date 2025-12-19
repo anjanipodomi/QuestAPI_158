@@ -50,5 +50,23 @@ fun HomeBody(
     retryAction: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-
+    {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = modifier
+        ) {
+            when (statusUIStateSiswa) {
+                is StatusUIStateSiswa.Loading -> LoadingScreen()
+                is StatusUIStateSiswa.Success ->
+                    DaftarSiswa(
+                        siswa = statusUIStateSiswa.siswa,
+                        onSiswaClick = onSiswaClick
+                    )
+                is StatusUIStateSiswa.Error -> ErrorScreen(
+                    retryAction = retryAction,
+                    modifier = Modifier.fillMaxSize()
+                )
+            }
+        }
+    }
 }
