@@ -31,5 +31,14 @@ fun HomeScreen(
                 )
             }
         }
-    )
+    ) { innerPadding ->
+        HomeBody(
+            statusUIStateSiswa = viewModel.listSiswa,
+            onSiswaClick = navigateToItemUpdate,
+            retryAction = viewModel::loadSiswa,
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxSize()
+        )
+    }
 }
