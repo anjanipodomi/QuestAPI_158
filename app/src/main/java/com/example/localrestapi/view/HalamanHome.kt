@@ -117,3 +117,41 @@ fun DaftarSiswa(
         }
     }
 }
+
+@Composable
+fun ItemSiswa(
+    siswa: DataSiswa,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        modifier = modifier,
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(dimensionResource(id = R.dimen.padding_large))
+                .fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(
+                dimensionResource(id = R.dimen.padding_small)
+            )
+        ) {
+            Text(
+                text = siswa.nama,
+                style = MaterialTheme.typography.titleLarge
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Icon(
+                imageVector = Icons.Default.Phone,
+                contentDescription = null
+            )
+            Text(
+                text = siswa.telpon,
+                style = MaterialTheme.typography.titleMedium
+            )
+            Text(
+                text = siswa.alamat,
+                style = MaterialTheme.typography.titleMedium
+            )
+        }
+    }
+}
