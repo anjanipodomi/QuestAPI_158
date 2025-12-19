@@ -1,7 +1,5 @@
 package com.example.localrestapi.repositori
 
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import android.app.Application
 import com.example.localrestapi.apiservice.ServiceApiSiswa
 import kotlinx.serialization.json.Json
@@ -16,7 +14,7 @@ interface ContainerApp{
 }
 
 class DefaultContainerApp : ContainerApp{
-    private val baseurl = "http://10.0.2.2/umyTI/"
+    private val baseUrl = "http://10.0.2.2/umyTI/"
 
     val logging = HttpLoggingInterceptor().apply{
         level = HttpLoggingInterceptor.Level.BODY
@@ -26,15 +24,15 @@ class DefaultContainerApp : ContainerApp{
         .build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl(baseUrl= baseurl)
+        .baseUrl(baseUrl)
     .addConverterFactory(
-    factory= Json{
+    Json{
         ignoreUnknownKeys = true
         prettyPrint = true
         isLenient = true
-    }.asConverterFactory(contentType="application/json".toMediaType())
+    }.asConverterFactory("application/json".toMediaType())
     )
-    .client(client= klien)
+    .client(klien)
     .build()
 
     private val retrofitService : ServiceApiSiswa by lazy{
@@ -46,7 +44,7 @@ class DefaultContainerApp : ContainerApp{
 }
 
 class AplikasiDataSiswa : Application(){
-    loteinit var container : ContainerApp
+    lateinit var container : ContainerApp
     override fun onCreate(){
         super.onCreate()
         this.container = DefaultContainerApp()
