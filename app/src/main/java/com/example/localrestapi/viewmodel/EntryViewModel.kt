@@ -1,5 +1,15 @@
 package com.example.localrestapi.viewmodel
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
+import com.example.mydatasisw.modeldata.DetailSiswa
+import com.example.mydatasisw.modeldata.UIStateSiswa
+import com.example.mydatasisw.modeldata.toDataSiswa
+import com.example.mydatasisw.repositori.RepositoryDataSiswa
+import retrofit2.Response
+
 class EntryViewModel(private val repositoryDataSiswa: RepositoryDataSiswa):
     ViewModel() {
     var uiStateSiswa by mutableStateOf(UIStateSiswa())
