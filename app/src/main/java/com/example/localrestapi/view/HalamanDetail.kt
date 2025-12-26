@@ -120,5 +120,19 @@ fun DetailDataSiswa(
                 .fillMaxWidth()
                 .padding(dimensionResource(id = R.dimen.padding_medium)),
             verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium))
-        )
+        ) {
+            BarisDetailData(
+                labelResId = R.string.nama,
+                itemDetail = siswa.nama
+            )
+            BarisDetailData(
+                labelResId = R.string.alamat,
+                itemDetail = siswa.alamat
+            )
+            BarisDetailData(
+                labelResId = R.string.telpon,
+                itemDetail = siswa.telpon
+            )
+        }
     }
+}
