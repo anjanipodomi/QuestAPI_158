@@ -16,7 +16,9 @@ interface RepositoryDataSiswa{
         service.updateSiswa(id, siswa)
     }
 
-
+    suspend fun deleteSiswa(id: Int) {
+        service.deleteSiswa(id)
+    }
 }
 
 class JaringanRepositoryDataSiswa(
