@@ -9,10 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
-import com.example.localrestapi.navigation.DestinasiEdit
-import com.example.localrestapi.ui.theme.SiswaTopAppBar
+import com.example.localrestapi.uicontroller.route.DestinasiEdit
+import com.example.localrestapi.view.SiswaTopAppBar
 import com.example.localrestapi.viewmodel.EditViewModel
-import com.example.localrestapi.viewmodel.PenyediaViewModel
+import com.example.localrestapi.viewmodel.provider.PenyediaViewModel
 import com.example.localrestapi.view.EntrySiswaBody
 
 

@@ -18,11 +18,12 @@ import kotlinx.coroutines.launch
 import androidx.annotation.StringRes
 import com.example.localrestapi.R
 import com.example.localrestapi.modeldata.DataSiswa
-import com.example.localrestapi.navigation.DestinasiDetail
-import com.example.localrestapi.ui.theme.SiswaTopAppBar
+import com.example.localrestapi.uicontroller.route.DestinasiDetail
+import com.example.localrestapi.view.SiswaTopAppBar
 import com.example.localrestapi.viewmodel.DetailViewModel
-import com.example.localrestapi.viewmodel.PenyediaViewModel
+import com.example.localrestapi.viewmodel.provider.PenyediaViewModel
 import com.example.localrestapi.viewmodel.StatusUIDetail
+
 
 
 @OptIn(ExperimentalMaterial3Api::class)
