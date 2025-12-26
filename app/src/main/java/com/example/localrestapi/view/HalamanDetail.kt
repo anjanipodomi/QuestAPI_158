@@ -64,6 +64,16 @@ private fun BodyDetailDataSiswa(
         modifier = modifier.padding(dimensionResource(id = R.dimen.padding_medium)),
         verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium))
     ) {
+        var deleteConfirmationRequired by rememberSaveable { mutableStateOf(false) }
+
+        when (statusUIDetail) {
+            is StatusUIDetail.Loading -> {
+                Text(text = stringResource(R.string.loading))
+            }
+
+            is StatusUIDetail.Error -> {
+                Text(text = stringResource(R.string.error))
+            }
 
 
     }
