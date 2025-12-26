@@ -12,6 +12,11 @@ interface RepositoryDataSiswa{
         return service.getSiswaById(id)
     }
 
+    suspend fun updateSiswa(id: Int, siswa: DataSiswa) {
+        service.updateSiswa(id, siswa)
+    }
+
+
 }
 
 class JaringanRepositoryDataSiswa(
