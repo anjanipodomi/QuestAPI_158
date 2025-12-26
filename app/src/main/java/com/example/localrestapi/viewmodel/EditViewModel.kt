@@ -16,6 +16,8 @@ import com.example.localrestapi.uicontroller.route.DestinasiDetail
 import kotlinx.coroutines.launch
 import java.io.IOException
 import retrofit2.HttpException
+import com.example.localrestapi.uicontroller.route.DestinasiEdit
+
 
 class EditViewModel(
     savedStateHandle: SavedStateHandle,
@@ -26,25 +28,27 @@ class EditViewModel(
         private set
 
     private val idSiswa: Int =
-        checkNotNull(savedStateHandle[DestinasiDetail.itemIdArg])
+        savedStateHandle.get<Int>(DestinasiEdit.itemIdArg) ?: 0
 
     init {
-        viewModelScope.launch {
-            uiStateSiswa = repositoryDataSiswa
-                .getSatuSiswa(idSiswa)
-                .toUiStateSiswa(true)
+        if (idSiswa != 0) {
+            viewModelScope.launch {
+                uiStateSiswa = repositoryDataSiswa
+                    .getSatuSiswa(idSiswa)
+                    .toUiStateSiswa(true)
+            }
         }
     }
 
     fun updateUiState(detailSiswa: DetailSiswa) {
         uiStateSiswa = UIStateSiswa(
-            DetailSiswa = detailSiswa,
+            detailSiswa = detailSiswa,
             isEntryValid = validasiInput(detailSiswa)
         )
     }
 
     private fun validasiInput(
-        uiState: DetailSiswa = uiStateSiswa.DetailSiswa
+        uiState: DetailSiswa = uiStateSiswa.detailSiswa
     ): Boolean {
         return with(uiState) {
             nama.isNotBlank() &&
@@ -59,7 +63,7 @@ class EditViewModel(
                 try {
                     val response = repositoryDataSiswa.editSatuSiswa(
                         idSiswa,
-                        uiStateSiswa.DetailSiswa.toDataSiswa()
+                        uiStateSiswa.detailSiswa.toDataSiswa()
                     )
                     if (response.isSuccessful) {
                         println("Update sukses")

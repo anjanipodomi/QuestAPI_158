@@ -24,6 +24,7 @@ import com.example.localrestapi.viewmodel.HomeViewModel
 import com.example.localrestapi.viewmodel.StatusUiSiswa
 import com.example.localrestapi.viewmodel.provider.PenyediaViewModel
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.LaunchedEffect
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -33,6 +34,9 @@ fun HomeScreen(
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
+    LaunchedEffect(key1 = true) {
+        viewModel.loadSiswa()
+    }
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
 
     Scaffold(

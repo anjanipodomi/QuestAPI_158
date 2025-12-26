@@ -15,7 +15,7 @@ class EntryViewModel(private val repositoryDataSiswa: RepositoryDataSiswa):
     var uiStateSiswa by mutableStateOf(UIStateSiswa())
         private set
 
-    private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.DetailSiswa ):
+    private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.detailSiswa ):
             Boolean {
         return with(uiState) {
             nama.isNotBlank() && alamat.isNotBlank() && telpon.isNotBlank()
@@ -24,14 +24,14 @@ class EntryViewModel(private val repositoryDataSiswa: RepositoryDataSiswa):
 
     fun updateUiState(detailSiswa: DetailSiswa) {
         uiStateSiswa =
-            UIStateSiswa(DetailSiswa = detailSiswa, isEntryValid = validasiInput
+            UIStateSiswa(detailSiswa = detailSiswa, isEntryValid = validasiInput
                 (detailSiswa))
     }
 
     suspend fun addSiswa() {
         if (validasiInput()) {
             val sip:Response<Void> =repositoryDataSiswa.postDataSiswa(uiStateSiswa
-                .DetailSiswa.toDataSiswa())
+                .detailSiswa.toDataSiswa())
             if (sip.isSuccessful){
                 println("Sukses Tambah Data : ${sip.message()}")
             }else{

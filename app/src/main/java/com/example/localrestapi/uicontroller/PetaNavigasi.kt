@@ -85,8 +85,7 @@ fun HostNavigasi(
         composable(
             route = DestinasiEdit.routeWithArgs,
             arguments = listOf(
-                navArgument(DestinasiDetail.itemIdArg)
-                {
+                navArgument(DestinasiEdit.itemIdArg) {
                     type = NavType.IntType
                 }
             )

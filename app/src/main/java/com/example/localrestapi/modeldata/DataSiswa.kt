@@ -11,7 +11,7 @@ data class DataSiswa(
 )
 
 data class UIStateSiswa(
-    val DetailSiswa: DetailSiswa = DetailSiswa(),
+    val detailSiswa: DetailSiswa = DetailSiswa(),
     val isEntryValid: Boolean = false
 )
 
@@ -30,7 +30,7 @@ fun DetailSiswa.toDataSiswa(): DataSiswa = DataSiswa(
 )
 
 fun DataSiswa.toUiStateSiswa(isEntryValid: Boolean = false): UIStateSiswa = UIStateSiswa(
-    DetailSiswa = this.toDetailSiswa(),
+    detailSiswa = this.toDetailSiswa(),
     isEntryValid = isEntryValid
 )
 

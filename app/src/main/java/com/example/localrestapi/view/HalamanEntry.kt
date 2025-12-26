@@ -73,7 +73,7 @@ fun EntrySiswaBody(
         modifier = modifier.padding(dimensionResource(id = R.dimen.padding_medium))
     ) {
         FormTambahSiswa(
-            detailSiswa = uiStateSiswa.DetailSiswa,
+            detailSiswa = uiStateSiswa.detailSiswa,
             onValueChange = onSiswaValueChange,
             modifier = Modifier.fillMaxWidth()
         )
