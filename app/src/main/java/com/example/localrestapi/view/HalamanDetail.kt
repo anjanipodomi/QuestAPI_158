@@ -52,5 +52,18 @@ fun DetailSiswaScreen(
                 .verticalScroll(rememberScrollState())
         )
     }
+}
 
+@Composable
+private fun BodyDetailDataSiswa(
+    statusUIDetail: StatusUIDetail,
+    onDelete: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier.padding(dimensionResource(id = R.dimen.padding_medium)),
+        verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium))
+    ) {
+        
+    }
 }
