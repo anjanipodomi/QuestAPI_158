@@ -1,5 +1,4 @@
-Halaman List Data
-<img width="311" height="651" alt="image" src="https://github.com/user-attachments/assets/b4ad1957-0fc2-4c1c-9bd7-09d3f68f96f9" />
+Halaman List Data <img width="311" height="651" alt="image" src="https://github.com/user-attachments/assets/b4ad1957-0fc2-4c1c-9bd7-09d3f68f96f9" />
 
 Halaman Tambah Data
 <img width="313" height="654" alt="image" src="https://github.com/user-attachments/assets/cf837f04-238e-4c10-92a8-ae021a871cc6" />
