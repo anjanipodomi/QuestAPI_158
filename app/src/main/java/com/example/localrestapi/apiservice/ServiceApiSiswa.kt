@@ -27,11 +27,12 @@ interface ServiceApiSiswa {
     suspend fun updateSiswa(
         @Query("id") id: Int,
         @Body siswa: DataSiswa
-    ): Response<ResponseBody>
+    ): Response<Void>
 
     @DELETE("deleteTM.php")
     suspend fun deleteSiswa(
         @Query("id") id: Int
-    ): Response<ResponseBody>
+    ): Response<Void>
+
 
 }

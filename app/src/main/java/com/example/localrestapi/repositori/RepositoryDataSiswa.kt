@@ -33,7 +33,9 @@ class JaringanRepositoryDataSiswa(
     ): Response<Void> =
         serviceApiSiswa.updateSiswa(id, dataSiswa)
 
-    override suspend fun hapusSatuSiswa(id: Int): Response<Void> =
+    override suspend fun hapusSatuSiswa(
+        id: Int
+    ): Response<Void> =
         serviceApiSiswa.deleteSiswa(id)
 
 }
