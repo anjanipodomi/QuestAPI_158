@@ -12,4 +12,21 @@ interface ServiceApiSiswa {
 
     @POST(value= "insertTm.php")
     suspend fun postSiswa(@Body dataSiswa: DataSiswa):retrofit2.Response<Void>
+
+    @GET("baca1teman.php")
+    suspend fun getSiswaById(
+        @Query("id") id: Int
+    ): DataSiswa
+
+    @PUT("editTM.php")
+    suspend fun updateSiswa(
+        @Query("id") id: Int,
+        @Body siswa: DataSiswa
+    ): Response<ResponseBody>
+
+    @DELETE("deleteTM.php")
+    suspend fun deleteSiswa(
+        @Query("id") id: Int
+    ): Response<ResponseBody>
+
 }
