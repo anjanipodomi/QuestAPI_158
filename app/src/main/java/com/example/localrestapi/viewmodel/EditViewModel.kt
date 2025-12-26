@@ -11,5 +11,11 @@ class EditViewModel(
     private val idSiswa: Int =
         checkNotNull(savedStateHandle[DestinasiDetail.itemIdArg])
 
-
+    init {
+        viewModelScope.launch {
+            uiStateSiswa = repositoryDataSiswa
+                .getSatuSiswa(idSiswa)
+                .toUiStateSiswa(true)
+        }
+    }
 }
