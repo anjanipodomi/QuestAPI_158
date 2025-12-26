@@ -1,5 +1,30 @@
 package com.example.localrestapi.view
 
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.coroutines.launch
+import androidx.annotation.StringRes
+import com.example.localrestapi.R
+import com.example.localrestapi.modeldata.DataSiswa
+import com.example.localrestapi.navigation.DestinasiDetail
+import com.example.localrestapi.ui.theme.SiswaTopAppBar
+import com.example.localrestapi.viewmodel.DetailViewModel
+import com.example.localrestapi.viewmodel.PenyediaViewModel
+import com.example.localrestapi.viewmodel.StatusUIDetail
+
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailSiswaScreen(
