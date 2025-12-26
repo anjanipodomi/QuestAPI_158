@@ -47,7 +47,11 @@ class DetailViewModel(
                 } else {
                     println("Gagal hapus data")
                 }
-
+            } catch (e: IOException) {
+                println("Error IO: ${e.message}")
+            } catch (e: HttpException) {
+                println("Error HTTP: ${e.message}")
+            }
         }
     }
 }
