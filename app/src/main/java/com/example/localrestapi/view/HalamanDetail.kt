@@ -23,6 +23,7 @@ fun DetailSiswaScreen(
                     when (uiState) {
                         is StatusUIDetail.Success ->
                             navigateToEditItem(uiState.siswa.id)
+
                         else -> {}
                     }
                 },
@@ -34,8 +35,22 @@ fun DetailSiswaScreen(
                     contentDescription = stringResource(R.string.update)
                 )
             }
-
+        },
+        modifier = modifier
+    ) { innerPadding ->
+        val coroutineScope = rememberCoroutineScope()
+        BodyDetailDataSiswa(
+            statusUIDetail = viewModel.statusUIDetail,
+            onDelete = {
+                coroutineScope.launch {
+                    viewModel.hapusSatuSiswa()
+                    navigateBack()
+                }
             },
-
+            modifier = Modifier
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
+        )
+    }
 
 }
