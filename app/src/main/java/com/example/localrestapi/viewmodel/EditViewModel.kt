@@ -36,5 +36,25 @@ class EditViewModel(
         }
     }
 
-
+    fun editSatuSiswa() {
+        viewModelScope.launch {
+            if (validasiInput()) {
+                try {
+                    val response = repositoryDataSiswa.editSatuSiswa(
+                        idSiswa,
+                        uiStateSiswa.detailSiswa.toDataSiswa()
+                    )
+                    if (response.isSuccessful) {
+                        println("Update sukses")
+                    } else {
+                        println("Update gagal")
+                    }
+                } catch (e: IOException) {
+                    println("IO Error: ${e.message}")
+                } catch (e: HttpException) {
+                    println("HTTP Error: ${e.message}")
+                }
+            }
+        }
+    }
 }
