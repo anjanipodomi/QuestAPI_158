@@ -10,8 +10,8 @@ import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
 import com.example.localrestapi.modeldata.DataSiswa
-import com.example.localrestapi.repository.RepositoryDataSiswa
-import com.example.localrestapi.navigasi.DestinasiDetail
+import com.example.localrestapi.repositori.RepositoryDataSiswa
+import com.example.localrestapi.uicontroller.route.DestinasiDetail
 
 
 sealed interface StatusUIDetail {

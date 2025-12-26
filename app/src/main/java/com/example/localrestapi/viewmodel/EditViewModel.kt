@@ -1,5 +1,22 @@
 package com.example.localrestapi.viewmodel
 
+
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.localrestapi.modeldata.DetailSiswa
+import com.example.localrestapi.modeldata.UIStateSiswa
+import com.example.localrestapi.modeldata.toDataSiswa
+import com.example.localrestapi.modeldata.toUiStateSiswa
+import com.example.localrestapi.repositori.RepositoryDataSiswa
+import com.example.localrestapi.uicontroller.route.DestinasiDetail
+import kotlinx.coroutines.launch
+import java.io.IOException
+import retrofit2.HttpException
+
 class EditViewModel(
     savedStateHandle: SavedStateHandle,
     private val repositoryDataSiswa: RepositoryDataSiswa
@@ -21,13 +38,13 @@ class EditViewModel(
 
     fun updateUiState(detailSiswa: DetailSiswa) {
         uiStateSiswa = UIStateSiswa(
-            detailSiswa = detailSiswa,
+            DetailSiswa = detailSiswa,
             isEntryValid = validasiInput(detailSiswa)
         )
     }
 
     private fun validasiInput(
-        uiState: DetailSiswa = uiStateSiswa.detailSiswa
+        uiState: DetailSiswa = uiStateSiswa.DetailSiswa
     ): Boolean {
         return with(uiState) {
             nama.isNotBlank() &&
@@ -42,7 +59,7 @@ class EditViewModel(
                 try {
                     val response = repositoryDataSiswa.editSatuSiswa(
                         idSiswa,
-                        uiStateSiswa.detailSiswa.toDataSiswa()
+                        uiStateSiswa.DetailSiswa.toDataSiswa()
                     )
                     if (response.isSuccessful) {
                         println("Update sukses")
