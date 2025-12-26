@@ -1,10 +1,15 @@
 package com.example.localrestapi.apiservice
 
 import com.example.localrestapi.modeldata.DataSiswa
+import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Query
+
 
 interface ServiceApiSiswa {
     @GET(value= "bacaTeman.php")
