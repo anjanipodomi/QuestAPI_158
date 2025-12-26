@@ -8,17 +8,9 @@ interface RepositoryDataSiswa{
     suspend fun getDataSiswa(): List<DataSiswa>
     suspend fun postDataSiswa(dataSiswa: DataSiswa) :retrofit2.Response<Void>
 
-    suspend fun getSiswaById(id: Int): DataSiswa {
-        return service.getSiswaById(id)
-    }
-
-    suspend fun updateSiswa(id: Int, siswa: DataSiswa) {
-        service.updateSiswa(id, siswa)
-    }
-
-    suspend fun deleteSiswa(id: Int) {
-        service.deleteSiswa(id)
-    }
+    suspend fun getSatuSiswa(id: Int): DataSiswa
+    suspend fun editSatuSiswa(id: Int, dataSiswa: DataSiswa): Response<Void>
+    suspend fun hapusSatuSiswa(id: Int): Response<Void>
 }
 
 class JaringanRepositoryDataSiswa(
@@ -31,4 +23,7 @@ class JaringanRepositoryDataSiswa(
         dataSiswa: DataSiswa
     ):Response<Void> =
         serviceApiSiswa.postSiswa(dataSiswa)
+
+    override suspend fun getSatuSiswa(id: Int): DataSiswa =
+        serviceApiSiswa.getSiswaById(id)
 }
