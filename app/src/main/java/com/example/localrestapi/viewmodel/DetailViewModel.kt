@@ -1,6 +1,18 @@
 package com.example.localrestapi.viewmodel
 
-import
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
+import com.example.localrestapi.modeldata.DataSiswa
+import com.example.localrestapi.repository.RepositoryDataSiswa
+import com.example.localrestapi.navigasi.DestinasiDetail
+
 
 sealed interface StatusUIDetail {
     data class Success(val siswa: DataSiswa) : StatusUIDetail
