@@ -7,6 +7,11 @@ import retrofit2.Response
 interface RepositoryDataSiswa{
     suspend fun getDataSiswa(): List<DataSiswa>
     suspend fun postDataSiswa(dataSiswa: DataSiswa) :retrofit2.Response<Void>
+
+    suspend fun getSiswaById(id: Int): DataSiswa {
+        return service.getSiswaById(id)
+    }
+
 }
 
 class JaringanRepositoryDataSiswa(
