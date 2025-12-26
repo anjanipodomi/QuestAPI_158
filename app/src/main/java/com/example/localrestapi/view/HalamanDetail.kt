@@ -114,4 +114,11 @@ fun DetailDataSiswa(
             containerColor = MaterialTheme.colorScheme.primaryContainer,
             contentColor = MaterialTheme.colorScheme.onPrimaryContainer
         )
-    ) {}
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(dimensionResource(id = R.dimen.padding_medium)),
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium))
+        )
+    }
