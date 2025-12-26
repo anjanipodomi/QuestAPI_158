@@ -37,3 +37,17 @@ class DetailViewModel(
             }
         }
     }
+
+    fun hapusSatuSiswa() {
+        viewModelScope.launch {
+            try {
+                val response = repositoryDataSiswa.hapusSatuSiswa(idSiswa)
+                if (response.isSuccessful) {
+                    println("Sukses hapus data")
+                } else {
+                    println("Gagal hapus data")
+                }
+
+        }
+    }
+}
