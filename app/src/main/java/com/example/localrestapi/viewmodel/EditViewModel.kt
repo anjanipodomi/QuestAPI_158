@@ -1,4 +1,6 @@
 package com.example.localrestapi.viewmodel
 
-class EditViewModel {
-}
+class EditViewModel(
+    savedStateHandle: SavedStateHandle,
+    private val repositoryDataSiswa: RepositoryDataSiswa
+) : ViewModel()
